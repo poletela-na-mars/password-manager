@@ -1,0 +1,124 @@
+@import '../variables', '../App';
+
+.root {
+  background: #E5E6C4;
+  background: linear-gradient(315deg, #E5E6C4, #FFFFFF 55%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    text-align: center;
+    margin: 20px 20px 60px;
+
+    svg {
+      fill: $brunswick-green;
+    }
+
+    h2 {
+      color: $brunswick-green;
+      text-align: center;
+      font-weight: 700;
+      font-size: calc(1vw + 0.8em);
+
+      @media (max-width: 700px) {
+        font-size: calc(1vw + 1em);
+      }
+
+      @media (min-width: 900px) {
+        font-size: calc(1vw + 0.7em);
+      }
+
+      @media (min-width: 1000px) {
+        font-size: calc(1vw + 0.6em);
+      }
+
+      @media (min-width: 1200px) {
+        font-size: calc(1vw + 0.5em);
+      }
+
+      @media (min-width: 1600px) {
+        font-size: calc(1vw + 0.3em);
+      }
+    }
+
+    .loginButton {
+      @include classicButton();
+      font-size: calc(1vw + 0.5em);
+      font-weight: 500;
+
+      @media (max-width: 700px) {
+        font-size: calc(1vw + 0.8em);
+      }
+
+      @media (min-width: 900px) {
+        font-size: calc(1vw + 0.5em);
+      }
+
+      @media (min-width: 1000px) {
+        font-size: calc(1vw + 0.3em);
+      }
+
+      @media (min-width: 1200px) {
+        font-size: calc(1vw + 0.15em);
+      }
+
+      @media (min-width: 1600px) {
+        font-size: calc(1vw + 0.1em);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+
+    @media (min-width: 500px) {
+      margin: 15%;
+    }
+    @media (min-width: 700px) {
+      margin: 22%;
+    }
+    @media (min-width: 900px) {
+      margin: 28%;
+    }
+    @media (min-width: 1200px) {
+      margin: 35%;
+    }
+  }
+
+  .regOrLogLink {
+    display: inline-block;
+    text-decoration: none;
+    color: $ash-gray;
+    font-weight: 300;
+    cursor: pointer;
+
+    &:hover {
+      transition: color 0.4ms;
+      color: $dim-gray;
+    }
+
+    font-size: calc(1vw + 0.5em);
+
+    @media (max-width: 700px) {
+      font-size: calc(1vw + 0.8em);
+    }
+
+    @media (min-width: 900px) {
+      font-size: calc(1vw + 0.5em);
+    }
+
+    @media (min-width: 1000px) {
+      font-size: calc(1vw + 0.3em);
+    }
+
+    @media (min-width: 1200px) {
+      font-size: calc(1vw + 0.15em);
+    }
+
+    @media (min-width: 1600px) {
+      font-size: calc(1vw + 0.1em);
+    }
+  }
+}

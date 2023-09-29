@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Login, Register, Storage } from './pages';
 
+import './index.scss';
 
 function App() {
   return (

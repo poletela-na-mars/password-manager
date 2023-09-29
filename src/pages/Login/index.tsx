@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 
 import { AuthTextFields } from '../../components';
+import { ReactComponent as LockIcon } from '../../assets/img/lock-icon.svg';
+
+import styles from '../../scss/pages/Login.module.scss';
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,12 +41,18 @@ export const Login = () => {
   };
 
   return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <AuthTextFields errors={errors} register={register} showPassword={showPassword}
-                        onPasswordShowClickHandler={onPasswordShowClickHandler} />
-        <button type='submit' disabled={!isValid || isSubmitting}>
-          Войти
-        </button>
-      </form>
+      <div className={styles.root}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <LockIcon width={38} height={38} />
+          <h2>Вход в SafeBox</h2>
+          <AuthTextFields errors={errors} register={register} showPassword={showPassword}
+                          onPasswordShowClickHandler={onPasswordShowClickHandler} />
+          {/*TODO - link to register page*/}
+          <a className={styles.regOrLogLink}>Зарегистрироваться</a>
+          <button className={styles.loginButton} type='submit' disabled={!isValid || isSubmitting}>
+            Войти
+          </button>
+        </form>
+      </div>
   );
 };
