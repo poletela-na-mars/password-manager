@@ -47,6 +47,7 @@ export const Login = () => {
 		email: {
 			label: 'E-Mail',
 			helperText: errors.email?.message,
+			error: Boolean(errors.email?.message),
 			register,
 			registerVal: 'email',
 			registerStr: 'Введите e-mail',
@@ -56,6 +57,7 @@ export const Login = () => {
 		password: {
 			label: 'Пароль',
 			helperText: errors.password?.message,
+			error: Boolean(errors.password?.message),
 			register,
 			registerVal: 'password',
 			registerStr: 'Введите пароль',

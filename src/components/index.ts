@@ -1,1 +1,1 @@
-export * from './styled/StyledTextField';
+export * from './StyledTextField';

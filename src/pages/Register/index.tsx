@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { selectIsAuth } from '../../redux/auth/selectors';
+import { fetchRegister } from '../../redux/auth/asyncActions';
+import { AppDispatch } from '../../redux/store';
 
 import { StyledTextField, StyledTextFieldProps } from '../../components';
 
-import { RegisterTextFieldsType, RegisterRegisterValType } from '../../@types/auth-types';
+import { RegisterTextFieldsType, RegisterRegisterValType, ServerErrorType } from '../../@types/auth-types';
 
 import { ReactComponent as LockIcon } from '../../assets/img/lock-icon.svg';
 
@@ -14,6 +19,9 @@ export const Register = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
+
+	const dispatch = useDispatch<AppDispatch>();
+	const isAuth = useSelector(selectIsAuth);
 
 	const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm({
 		defaultValues: {
@@ -28,23 +36,32 @@ export const Register = () => {
 
 	const onPasswordRepeatShowClickHandler = () => setShowPasswordRepeat(!showPasswordRepeat);
 
+	if (isAuth) {
+		return <Navigate to='/' />;
+	}
+
 	const onSubmit = async (values: FieldValues) => {
 		try {
 			setIsSubmitting((prevState) => !prevState);
-			// const data = await dispatch(fetchAuth(values));
+			// TODO - type
+			const data: any = await dispatch(fetchRegister(values));
 			setIsSubmitting((prevState) => !prevState);
 
-			console.log('SUBMITTED')
+			console.log(data)
 
-
-			// if (data.meta.requestStatus === 'rejected') {
-			//   await Promise.reject(data.error.message);
-			// } else if ('token' in data?.payload) {
-			//   window.localStorage.setItem('token', data.payload.token);
-			// }
+			if (data.meta.requestStatus === 'rejected') {
+				await Promise.reject(data.error.message);
+				// await Promise.reject(JSON.stringify(data));
+			} else if ('token' in data?.payload) {
+				window.localStorage.setItem('token', data.payload.token);
+			}
 		} catch (err) {
-			console.log(err);
-			// setError('LoginError', { type: 'custom', message: err });
+			const parsedErrs = JSON.parse(err as string);
+			console.log(parsedErrs);
+
+			Array.isArray(parsedErrs)
+				? [...parsedErrs].forEach((e: ServerErrorType) => setError(e.path, { type: 'custom', message: e.msg }))
+				: setError(parsedErrs.path, { type: 'custom', message: parsedErrs.msg });
 		}
 	};
 
@@ -52,6 +69,7 @@ export const Register = () => {
 		email: {
 			label: 'E-Mail',
 			helperText: errors.email?.message,
+			error: Boolean(errors.email?.message),
 			register,
 			registerVal: 'email',
 			registerStr: 'Введите e-mail',
@@ -61,6 +79,7 @@ export const Register = () => {
 		password: {
 			label: 'Пароль',
 			helperText: errors.password?.message,
+			error: Boolean(errors.password?.message),
 			register,
 			registerVal: 'password',
 			registerStr: 'Введите пароль',
@@ -72,6 +91,7 @@ export const Register = () => {
 		passwordRepeat: {
 			label: 'Повторите пароль',
 			helperText: errors.passwordRepeat?.message,
+			error: Boolean(errors.passwordRepeat?.message),
 			register,
 			registerVal: 'passwordRepeat',
 			registerStr: 'Введите пароль еще раз',
