@@ -10,10 +10,15 @@ export interface RegisterTextFieldsType extends AuthTextFieldsType {
 export type LoginRegisterValType = 'email' | 'password';
 export type RegisterRegisterValType = LoginRegisterValType | 'passwordRepeat';
 
-export interface ServerErrorType {
+export interface ServerErrorRegisterType {
 	location: string;
 	msg: string;
 	path: RegisterRegisterValType;
 	type: string;
 	value: string;
+}
+
+export interface ServerErrorLoginType {
+	msg: string;
+	path: LoginRegisterValType;
 }

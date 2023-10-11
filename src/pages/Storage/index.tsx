@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { selectIsAuth } from '../../redux/auth/selectors';
 
 export const Storage = () => {
-	const navigate = useNavigate();
+	const isAuth = useSelector(selectIsAuth);
 
-	// TODO - implement logic with redirect to login, when not auth
-
-	useEffect(() => {
-		navigate('/login');
-	}, []);
+	if (!isAuth) {
+		return <Navigate to='/login' />;
+	}
 
 	return (
 		<div>Storage</div>

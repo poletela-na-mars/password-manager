@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchAuth, fetchCheckAuth, fetchRegister } from './asyncActions';
+import { fetchLogin, fetchCheckAuth, fetchRegister } from './asyncActions';
 
 import { Status } from '../../assets/consts';
 
@@ -20,15 +20,15 @@ const authSlice = createSlice({
 		}
 	},
 	extraReducers: (builder) => {
-		builder.addCase(fetchAuth.pending, (state) => {
+		builder.addCase(fetchLogin.pending, (state) => {
 			state.data = null;
 			state.status = Status.LOADING;
 		})
-			.addCase(fetchAuth.fulfilled, (state, action) => {
+			.addCase(fetchLogin.fulfilled, (state, action) => {
 				state.data = action.payload;
 				state.status = Status.SUCCESS;
 			})
-			.addCase(fetchAuth.rejected, (state) => {
+			.addCase(fetchLogin.rejected, (state) => {
 				state.data = null;
 				state.status = Status.ERROR;
 			})

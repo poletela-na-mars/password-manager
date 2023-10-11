@@ -9,7 +9,7 @@ import { AppDispatch } from '../../redux/store';
 
 import { StyledTextField, StyledTextFieldProps } from '../../components';
 
-import { RegisterTextFieldsType, RegisterRegisterValType, ServerErrorType } from '../../@types/auth-types';
+import { RegisterTextFieldsType, RegisterRegisterValType, ServerErrorRegisterType } from '../../@types/auth-types';
 
 import { ReactComponent as LockIcon } from '../../assets/img/lock-icon.svg';
 
@@ -51,7 +51,6 @@ export const Register = () => {
 
 			if (data.meta.requestStatus === 'rejected') {
 				await Promise.reject(data.error.message);
-				// await Promise.reject(JSON.stringify(data));
 			} else if ('token' in data?.payload) {
 				window.localStorage.setItem('token', data.payload.token);
 			}
@@ -60,7 +59,7 @@ export const Register = () => {
 			console.log(parsedErrs);
 
 			Array.isArray(parsedErrs)
-				? [...parsedErrs].forEach((e: ServerErrorType) => setError(e.path, { type: 'custom', message: e.msg }))
+				? [...parsedErrs].forEach((e: ServerErrorRegisterType) => setError(e.path, { type: 'custom', message: e.msg }))
 				: setError(parsedErrs.path, { type: 'custom', message: parsedErrs.msg });
 		}
 	};
@@ -104,7 +103,7 @@ export const Register = () => {
 
 	return (
 		<div className={styles.root}>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(onSubmit)} noValidate={true}>
 				<LockIcon width={38} height={38} />
 				<h2>Регистрация в SafeBox</h2>
 

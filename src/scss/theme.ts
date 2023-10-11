@@ -10,5 +10,9 @@ export const theme = createTheme({
 		secondary: {
 			main: '#edf2ff',
 		},
+		error: {
+			// falu red
+			main: '#81171b'
+		}
 	},
 });

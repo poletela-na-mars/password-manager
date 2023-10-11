@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { fetchCheckAuth } from './redux/auth/asyncActions';
+import { AppDispatch } from './redux/store';
+
 import { Login, Register, Storage } from './pages';
 
 import './index.scss';
 
+
 function App() {
+	const dispatch = useDispatch<AppDispatch>();
+
+	useEffect(() => {
+		dispatch(fetchCheckAuth());
+	}, [dispatch]);
+
 	return (
 		<Routes>
 			{/*<Route path='*' element={<NotFound />} />*/}

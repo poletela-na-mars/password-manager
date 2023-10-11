@@ -1,14 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../assets/axiosConfig';
 
-export const fetchAuth = createAsyncThunk('auth/fetchAuth', async (params) => {
+// TODO - provide types
+export const fetchLogin = createAsyncThunk('auth/fetchLogin', async (params: any) => {
 	return axios.post('/auth/login', params)
 		.then((res) => {
 			return res.data;
 		})
-		.catch((err) => {
-			console.log(err.response.data.message);
-			return Promise.reject(err.response.data.message);
+		.catch(async (err) => {
+			console.log(err);
+			await Promise.reject(JSON.stringify(err.response.data));
+			return JSON.stringify(err.response.data);
 		});
 });
 
@@ -22,8 +24,6 @@ export const fetchRegister = createAsyncThunk('auth/fetchRegister', async (param
 			console.log(err);
 			await Promise.reject(JSON.stringify(err.response.data));
 			return JSON.stringify(err.response.data);
-			// return JSON.stringify(err);
-			// return Promise.reject(JSON.stringify(err));
 		});
 });
 
