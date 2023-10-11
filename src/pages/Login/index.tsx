@@ -1,6 +1,6 @@
 import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
-import { FieldValues, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchLogin } from '../../redux/auth/asyncActions';
@@ -11,11 +11,7 @@ import { StyledTextField, StyledTextFieldProps } from '../../components';
 
 import { ReactComponent as LockIcon } from '../../assets/img/lock-icon.svg';
 
-import {
-	AuthTextFieldsType,
-	LoginRegisterValType,
-	ServerErrorLoginType,
-} from '../../@types/auth-types';
+import { AuthTextFieldsType, LoginRegisterValType, ServerErrorLoginType, } from '../../@types/auth-types';
 
 import styles from './Login.module.scss';
 
@@ -40,16 +36,14 @@ export const Login = () => {
 		return <Navigate to='/' />;
 	}
 
-	console.log(errors)
-
-	const onSubmit = async (values: FieldValues) => {
+	const onSubmit = async (values: AuthTextFieldsType) => {
 		try {
 			setIsSubmitting((prevState) => !prevState);
 			// TODO - type
 			const data: any = await dispatch(fetchLogin(values));
-			setIsSubmitting((prevState) => !prevState);
-
 			console.log(data)
+
+			setIsSubmitting((prevState) => !prevState);
 
 			if (data.meta.requestStatus === 'rejected') {
 				await Promise.reject(data.error.message);
@@ -92,7 +86,8 @@ export const Login = () => {
 	};
 
 	// to display not valid email/password error in only password's helperText, but other errors in a common way
-	if (textFieldsProps.email.registerStr !== textFieldsProps.email.helperText) textFieldsProps.email.helperText = undefined;
+	if (textFieldsProps.email.registerStr !== textFieldsProps.email.helperText) textFieldsProps.email.helperText =
+		undefined;
 
 	return (
 		<div className={styles.root}>

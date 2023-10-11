@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FieldValues, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { selectIsAuth } from '../../redux/auth/selectors';
 import { fetchRegister } from '../../redux/auth/asyncActions';
@@ -9,7 +9,7 @@ import { AppDispatch } from '../../redux/store';
 
 import { StyledTextField, StyledTextFieldProps } from '../../components';
 
-import { RegisterTextFieldsType, RegisterRegisterValType, ServerErrorRegisterType } from '../../@types/auth-types';
+import { RegisterRegisterValType, RegisterTextFieldsType, ServerErrorRegisterType } from '../../@types/auth-types';
 
 import { ReactComponent as LockIcon } from '../../assets/img/lock-icon.svg';
 
@@ -40,7 +40,7 @@ export const Register = () => {
 		return <Navigate to='/' />;
 	}
 
-	const onSubmit = async (values: FieldValues) => {
+	const onSubmit = async (values: RegisterTextFieldsType) => {
 		try {
 			setIsSubmitting((prevState) => !prevState);
 			// TODO - type

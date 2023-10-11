@@ -1,8 +1,7 @@
 import { Status } from '../assets/consts';
-
-// TODO - type data (user info?)
+import { UserData } from './auth-types';
 
 export interface AuthState {
-	data: any;
+	data: UserData;
 	status: Status;
 }

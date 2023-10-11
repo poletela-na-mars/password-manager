@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchLogin, fetchCheckAuth, fetchRegister } from './asyncActions';
 
 import { Status } from '../../assets/consts';
+import { AuthState } from '../../@types/redux-types';
+import { UserData } from '../../@types/auth-types';
 
-// TODO - provide types
-
-const initialState = {
+const initialState: AuthState = {
 	data: null,
 	status: Status.LOADING,
 };
@@ -24,7 +24,7 @@ const authSlice = createSlice({
 			state.data = null;
 			state.status = Status.LOADING;
 		})
-			.addCase(fetchLogin.fulfilled, (state, action) => {
+			.addCase(fetchLogin.fulfilled, (state, action: PayloadAction<UserData>) => {
 				state.data = action.payload;
 				state.status = Status.SUCCESS;
 			})
@@ -50,7 +50,7 @@ const authSlice = createSlice({
 				state.data = null;
 				state.status = Status.LOADING;
 			})
-			.addCase(fetchRegister.fulfilled, (state, action) => {
+			.addCase(fetchRegister.fulfilled, (state, action: PayloadAction<UserData>) => {
 				state.data = action.payload;
 				state.status = Status.SUCCESS;
 			})

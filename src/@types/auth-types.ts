@@ -1,3 +1,27 @@
+export interface User {
+	createdAt: string;
+	email: string;
+	token: string;
+	updatedAt: string;
+	__v: number;
+	_id: string;
+}
+
+export type UserData = User | null;
+
+export interface FetchLoginData {
+	meta: {
+		arg: {
+			email: string;
+			password: string;
+		}
+		requestId: string;
+		requestStatus: string;
+	};
+	payload: UserData;
+	type: string;
+}
+
 export interface AuthTextFieldsType {
 	email: string;
 	password: string;
