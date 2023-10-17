@@ -4,15 +4,22 @@ import { createTheme } from '@mui/material';
 export const theme = createTheme({
 	palette: {
 		primary: {
+			// baby powder
+			light: '#F7F7F2',
 			// brunswick-green
 			main: '#294936',
+			// dim-gray
+			dark: '#6B736A',
 		},
 		secondary: {
 			main: '#edf2ff',
 		},
 		error: {
 			// falu red
-			main: '#81171b'
+			main: '#81171b',
 		}
 	},
+	shape: {
+		borderRadius: 30,
+	}
 });

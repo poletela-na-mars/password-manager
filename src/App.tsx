@@ -6,9 +6,9 @@ import { fetchCheckAuth } from './redux/auth/asyncActions';
 import { AppDispatch } from './redux/store';
 
 import { Login, Register, Storage } from './pages';
+import { MainLayout } from './layouts/MainLayout';
 
 import './index.scss';
-
 
 function App() {
 	const dispatch = useDispatch<AppDispatch>();
@@ -20,7 +20,9 @@ function App() {
 	return (
 		<Routes>
 			{/*<Route path='*' element={<NotFound />} />*/}
-			<Route path='/' element={<Storage />} />
+			<Route path='/' element={<MainLayout />}>
+				<Route path='' element={<Storage />} />
+			</Route>
 			<Route path='/login' element={<Login />} />
 			<Route path='/register' element={<Register />} />
 		</Routes>

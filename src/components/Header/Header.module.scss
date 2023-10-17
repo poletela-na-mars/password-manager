@@ -1,0 +1,29 @@
+@import '../../scss/_variables', '../../scss/App';
+
+.toolBar {
+  background-color: $honeydew;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  color: $brunswick-green;
+  text-align: center;
+  font-weight: 700;
+  @include font18ForLaptopL;
+}
+
+svg {
+  fill: $brunswick-green;
+}
+
+.buttonsGroup {
+  display: flex;
+  justify-content: flex-end;
+
+  .searchIcon {
+  }
+
+  .accountIcon {
+  }
+}

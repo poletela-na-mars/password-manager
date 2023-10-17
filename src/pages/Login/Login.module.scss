@@ -104,26 +104,6 @@
       color: $dim-gray;
     }
 
-    font-size: calc(1vw + 0.5em);
-
-    @media (max-width: 700px) {
-      font-size: calc(1vw + 0.8em);
-    }
-
-    @media (min-width: 900px) {
-      font-size: calc(1vw + 0.5em);
-    }
-
-    @media (min-width: 1000px) {
-      font-size: calc(1vw + 0.3em);
-    }
-
-    @media (min-width: 1200px) {
-      font-size: calc(1vw + 0.15em);
-    }
-
-    @media (min-width: 1600px) {
-      font-size: calc(1vw + 0.1em);
-    }
+    @include font18ForLaptopL;
   }
 }
