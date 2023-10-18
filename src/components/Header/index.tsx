@@ -2,11 +2,11 @@ import React from 'react';
 import { AppBar, IconButton, Toolbar, Tooltip } from '@mui/material';
 
 import { Search } from '../Search';
+import { AccountMenu } from '../AccountMenu';
 
 import { ReactComponent as AccountIcon } from '../../assets/img/account-icon.svg';
 
 import styles from './Header.module.scss';
-import { AccountMenu } from '../AccountMenu';
 
 // TODO - change value in h2 cause of url
 export const Header = () => {
@@ -29,11 +29,11 @@ export const Header = () => {
 					<Search />
 					<Tooltip title='Аккаунт'>
 						<IconButton onClick={accountButtonClickHandler}
-						            // size='small'
-						            // sx={{ ml: 2 }}
-						            aria-controls={open ? 'account-menu' : undefined}
-						            aria-haspopup='true'
-						            aria-expanded={open ? 'true' : undefined}
+							// size='small'
+							// sx={{ ml: 2 }}
+							          aria-controls={open ? 'account-menu' : undefined}
+							          aria-haspopup='true'
+							          aria-expanded={open ? 'true' : undefined}
 						>
 							<AccountIcon className={styles.accountIcon} />
 						</IconButton>

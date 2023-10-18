@@ -20,53 +20,13 @@
       color: $brunswick-green;
       text-align: center;
       font-weight: 700;
-      font-size: calc(1vw + 0.8em);
-
-      @media (max-width: 700px) {
-        font-size: calc(1vw + 1em);
-      }
-
-      @media (min-width: 900px) {
-        font-size: calc(1vw + 0.7em);
-      }
-
-      @media (min-width: 1000px) {
-        font-size: calc(1vw + 0.6em);
-      }
-
-      @media (min-width: 1200px) {
-        font-size: calc(1vw + 0.5em);
-      }
-
-      @media (min-width: 1600px) {
-        font-size: calc(1vw + 0.3em);
-      }
+      @include largeFont;
     }
 
     .loginButton {
-      @include classicButton();
-      font-size: calc(1vw + 0.5em);
+      @include classicButton;
+      @include font18ForLaptopL;
       font-weight: 400;
-
-      @media (max-width: 700px) {
-        font-size: calc(1vw + 0.8em);
-      }
-
-      @media (min-width: 900px) {
-        font-size: calc(1vw + 0.5em);
-      }
-
-      @media (min-width: 1000px) {
-        font-size: calc(1vw + 0.3em);
-      }
-
-      @media (min-width: 1200px) {
-        font-size: calc(1vw + 0.15em);
-      }
-
-      @media (min-width: 1600px) {
-        font-size: calc(1vw + 0.1em);
-      }
 
       &:enabled:active {
         transform: scale(0.9);

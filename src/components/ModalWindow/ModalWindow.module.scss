@@ -1,0 +1,29 @@
+@import '../../scss/App';
+
+.modalButton {
+  @include classicButton;
+  @include font18ForLaptopL;
+  font-weight: 400;
+  margin: 0 20px;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.modalTitle {
+  @include largeFont;
+  text-align: center;
+  font-weight: 500;
+  margin: 8px 24px 24px 24px;
+}
+
+.closeIcon {
+  align-self: flex-end;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

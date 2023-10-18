@@ -7,8 +7,13 @@
   background-color: $b-color;
   color: $color;
   margin: $margin;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: $button-box-shadow;
   padding: $padding;
+  transition: box-shadow $fast-transition-dur;
+
+  &:hover {
+    box-shadow: $hover-button-box-shadow;
+  }
 }
 
 @mixin font18ForLaptopL {
@@ -32,6 +37,30 @@
 
   @media (min-width: 1600px) {
     font-size: calc(1vw + 0.1em);
+  }
+}
+
+@mixin largeFont {
+  font-size: calc(1vw + 0.8em);
+
+  @media (max-width: 700px) {
+    font-size: calc(1vw + 1em);
+  }
+
+  @media (min-width: 900px) {
+    font-size: calc(1vw + 0.7em);
+  }
+
+  @media (min-width: 1000px) {
+    font-size: calc(1vw + 0.6em);
+  }
+
+  @media (min-width: 1200px) {
+    font-size: calc(1vw + 0.5em);
+  }
+
+  @media (min-width: 1600px) {
+    font-size: calc(1vw + 0.3em);
   }
 }
 
