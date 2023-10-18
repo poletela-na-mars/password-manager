@@ -4,12 +4,13 @@ import { ReactComponent as SearchIcon } from '../../assets/img/search-icon.svg';
 
 const StyledSearch = styled('div')(({ theme }) => ({
 	position: 'relative',
-	borderRadius: theme.shape.borderRadius,
+	borderRadius: 30,
 	backgroundColor: alpha(theme.palette.common.white, 0.4),
 	'&:hover': {
 		backgroundColor: alpha(theme.palette.common.white, 0.6),
 	},
 	marginLeft: 0,
+	marginRight: 16,
 	width: '70%',
 	[theme.breakpoints.up('sm')]: {
 		marginLeft: theme.spacing(1),
@@ -30,6 +31,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
 	color: 'inherit',
 	'& .MuiInputBase-input': {
+		fontWeight: 300,
 		color: theme.palette.primary.dark,
 		padding: theme.spacing(1, 1, 1, 0),
 		// vertical padding + font size from searchIcon
@@ -53,7 +55,7 @@ export const Search = () => {
 				<SearchIcon />
 			</SearchIconWrapper>
 			<StyledInputBase
-				placeholder='Search…'
+				placeholder='Поиск…'
 				inputProps={{ 'aria-label': 'search' }}
 			/>
 		</StyledSearch>

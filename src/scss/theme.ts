@@ -19,7 +19,7 @@ export const theme = createTheme({
 			main: '#81171b',
 		}
 	},
-	shape: {
-		borderRadius: 30,
-	}
+	// shape: {
+	// 	borderRadius: 30,
+	// }
 });
