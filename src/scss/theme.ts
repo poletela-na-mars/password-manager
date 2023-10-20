@@ -12,7 +12,8 @@ export const theme = createTheme({
 			dark: '#6B736A',
 		},
 		secondary: {
-			main: '#edf2ff',
+			// honeydew
+			main: '#E2EDE1',
 		},
 		error: {
 			// falu red

@@ -1,0 +1,13 @@
+@import '../../scss/_variables', '../../scss/App';
+
+.drawer {
+  .listItemButton {
+    .listItemTitle {
+      font-weight: 500;
+      color: $brunswick-green;
+      @include fontSmall;
+      margin: 8px;
+    }
+  }
+}
+

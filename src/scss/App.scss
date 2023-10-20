@@ -16,6 +16,30 @@
   }
 }
 
+@mixin fontSmall {
+  font-size: calc(1vw + 0.35em);
+
+  @media (max-width: 700px) {
+    font-size: calc(1vw + 0.65em);
+  }
+
+  @media (min-width: 900px) {
+    font-size: calc(1vw + 0.35em);
+  }
+
+  @media (min-width: 1000px) {
+    font-size: calc(1vw + 0.15em);
+  }
+
+  @media (min-width: 1200px) {
+    font-size: calc(1vw + 0.01em);
+  }
+
+  @media (min-width: 1600px) {
+    font-size: calc(1vw + 0.001em);
+  }
+}
+
 @mixin font18ForLaptopL {
   font-size: calc(1vw + 0.5em);
 
@@ -40,7 +64,7 @@
   }
 }
 
-@mixin largeFont {
+@mixin fontLarge {
   font-size: calc(1vw + 0.8em);
 
   @media (max-width: 700px) {

@@ -4,8 +4,6 @@ import { ReactComponent as CloseIcon } from '../../assets/img/close-icon.svg';
 
 import styles from './ModalWindow.module.scss';
 
-// TODO - unify modal window
-
 type ModalWindowProps = {
 	openPopup: boolean;
 	closePopupHandler: () => void;

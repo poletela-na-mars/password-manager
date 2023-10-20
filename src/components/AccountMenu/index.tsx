@@ -46,6 +46,7 @@ export const AccountMenu = ({ anchorEl, open, handleClose }: AccountMenuProps) =
 				open={open}
 				onClose={handleClose}
 				onClick={handleClose}
+				sx={{ zIndex: 2001 }}
 				PaperProps={{
 					elevation: 0,
 					sx: {

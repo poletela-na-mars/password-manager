@@ -21,7 +21,7 @@ export const Header = () => {
 	};
 
 	return (
-		<AppBar position='static' elevation={0}>
+		<AppBar position='fixed' elevation={0} sx={{ zIndex: 2000 }}>
 			<Toolbar className={styles.toolBar}>
 				<h2 className={styles.title}>Хранилище</h2>
 
@@ -29,11 +29,9 @@ export const Header = () => {
 					<Search />
 					<Tooltip title='Аккаунт'>
 						<IconButton onClick={accountButtonClickHandler}
-							// size='small'
-							// sx={{ ml: 2 }}
-							          aria-controls={open ? 'account-menu' : undefined}
-							          aria-haspopup='true'
-							          aria-expanded={open ? 'true' : undefined}
+						            aria-controls={open ? 'account-menu' : undefined}
+						            aria-haspopup='true'
+						            aria-expanded={open ? 'true' : undefined}
 						>
 							<AccountIcon className={styles.accountIcon} />
 						</IconButton>

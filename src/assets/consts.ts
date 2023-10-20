@@ -4,3 +4,9 @@ export enum Status {
 	ERROR = 'error',
 }
 
+export enum Sections {
+	Storage = 'Хранилище',
+	Share = 'Поделиться',
+	Generator = 'Генератор',
+	Settings = 'Настройки',
+}

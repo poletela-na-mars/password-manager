@@ -11,6 +11,40 @@ export const Storage = () => {
 	}
 
 	return (
-		<div>Storage</div>
+		<>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
+				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
+				temporibus unde.
+			</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
+				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
+				temporibus unde.
+			</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
+				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
+				temporibus unde.
+			</div>
+
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
+				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
+				temporibus unde.
+			</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
+				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
+				temporibus unde.
+			</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
+				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
+				temporibus unde.
+			</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
+				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
+				temporibus unde.
+			</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
+				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
+				temporibus unde.
+			</div>
+		</>
 	);
 };

@@ -20,7 +20,7 @@
       color: $brunswick-green;
       text-align: center;
       font-weight: 700;
-      @include largeFont;
+      @include fontLarge;
     }
 
     .loginButton {
