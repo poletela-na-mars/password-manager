@@ -30,7 +30,7 @@ export const Login = () => {
 		mode: 'onChange',
 	});
 
-	const onPasswordShowClickHandler = () => setShowPassword(!showPassword);
+	const passwordShowClickHandler = () => setShowPassword(!showPassword);
 
 	if (isAuth) {
 		return <Navigate to='/' />;
@@ -80,7 +80,7 @@ export const Login = () => {
 			registerStr: 'Введите пароль',
 			type: 'password',
 			inputProps: { maxLength: 40 },
-			onPasswordShowClickHandler,
+			passwordShowClickHandler,
 			showPassword,
 		}
 	};

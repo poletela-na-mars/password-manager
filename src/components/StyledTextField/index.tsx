@@ -19,7 +19,7 @@ export type StyledTextFieldProps<T extends AuthTextFieldsType | RegisterTextFiel
 	type: string;
 	inputProps: InputBaseComponentProps;
 	showPassword?: boolean;
-	onPasswordShowClickHandler?: () => void;
+	passwordShowClickHandler?: () => void;
 };
 
 export const StyledTextField = <T extends AuthTextFieldsType | RegisterTextFieldsType>({
@@ -31,7 +31,7 @@ export const StyledTextField = <T extends AuthTextFieldsType | RegisterTextField
 	                                                                                       registerStr,
 	                                                                                       type,
 	                                                                                       inputProps,
-	                                                                                       onPasswordShowClickHandler,
+	                                                                                       passwordShowClickHandler,
 	                                                                                       showPassword
 }: StyledTextFieldProps<T>) => {
 	let IP;
@@ -39,7 +39,7 @@ export const StyledTextField = <T extends AuthTextFieldsType | RegisterTextField
 		IP = {
 			endAdornment:
 				<InputAdornment position='end'>
-					<IconButton onClick={onPasswordShowClickHandler}>
+					<IconButton onClick={passwordShowClickHandler}>
 						{showPassword ? <VisibilityOffIcon className={styles.visibilityIcon} /> :
 							<VisibilityIcon className={styles.visibilityIcon} />}
 					</IconButton>

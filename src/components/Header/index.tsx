@@ -3,12 +3,12 @@ import { AppBar, IconButton, Toolbar, Tooltip } from '@mui/material';
 
 import { Search } from '../Search';
 import { AccountMenu } from '../AccountMenu';
+import { Logo } from '../Logo';
 
 import { ReactComponent as AccountIcon } from '../../assets/img/account-icon.svg';
 
 import styles from './Header.module.scss';
 
-// TODO - change value in h2 cause of url
 export const Header = () => {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
@@ -21,9 +21,9 @@ export const Header = () => {
 	};
 
 	return (
-		<AppBar position='fixed' elevation={0} sx={{ zIndex: 2000 }}>
+		<AppBar position='fixed' elevation={0} sx={{ zIndex: 1500 }}>
 			<Toolbar className={styles.toolBar}>
-				<h2 className={styles.title}>Хранилище</h2>
+				<Logo />
 
 				<div className={styles.buttonsGroup}>
 					<Search />

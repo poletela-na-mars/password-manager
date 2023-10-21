@@ -16,6 +16,23 @@
   }
 }
 
+@mixin outlinedButton($radius: 30px, $b-color: $white, $color: $brunswick-green, $margin: 20px, $padding: 10px 15px 10px 15px, $border: 1px solid) {
+  cursor: pointer;
+  border: $border;
+  border-radius: $radius;
+  background-color: $b-color;
+  color: $color;
+  margin: $margin;
+  padding: $padding;
+  transition-property:background-color, color;
+  transition-duration: $fast-transition-dur;
+
+  &:hover {
+    background-color: $brunswick-green;
+    color: $white;
+  }
+}
+
 @mixin fontSmall {
   font-size: calc(1vw + 0.35em);
 
@@ -118,6 +135,7 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
 @keyframes jello-horizontal {
   0% {
     -webkit-transform: scale3d(1, 1, 1);

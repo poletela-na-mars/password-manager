@@ -1,15 +1,15 @@
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ListItemIcon, Menu, MenuItem } from '@mui/material';
+
+import { ModalWindow } from '../ModalWindow';
 
 import { AppDispatch } from '../../redux/store';
 import { logout } from '../../redux/auth/slice';
 
-import { ReactComponent as SettingsIcon } from '../../assets/img/settings-icon.svg';
 import { ReactComponent as LogoutIcon } from '../../assets/img/logout-icon.svg';
 
 import styles from './AccountMenu.module.scss';
-import { ModalWindow } from '../ModalWindow';
-import React, { useState } from 'react';
 
 type AccountMenuProps = {
 	anchorEl: HTMLElement | null;
@@ -46,7 +46,8 @@ export const AccountMenu = ({ anchorEl, open, handleClose }: AccountMenuProps) =
 				open={open}
 				onClose={handleClose}
 				onClick={handleClose}
-				sx={{ zIndex: 2001 }}
+				sx={{ zIndex: 1501 }}
+				disableScrollLock={true}
 				PaperProps={{
 					elevation: 0,
 					sx: {
@@ -77,12 +78,12 @@ export const AccountMenu = ({ anchorEl, open, handleClose }: AccountMenuProps) =
 				transformOrigin={{ horizontal: 'right', vertical: 'top' }}
 				anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
 			>
-				<MenuItem onClick={handleClose} className={styles.menuItem}>
-					<ListItemIcon>
-						<SettingsIcon />
-					</ListItemIcon>
-					Настройки
-				</MenuItem>
+				{/*<MenuItem onClick={handleClose} className={styles.menuItem}>*/}
+				{/*	<ListItemIcon>*/}
+				{/*		<SettingsIcon />*/}
+				{/*	</ListItemIcon>*/}
+				{/*	Настройки*/}
+				{/*</MenuItem>*/}
 				<MenuItem onClick={() => setOpenPopup(!openPopup)} className={styles.menuItem}>
 					<ListItemIcon>
 						<LogoutIcon />

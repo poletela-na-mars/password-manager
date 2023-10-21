@@ -4,3 +4,4 @@ export * from './Search';
 export * from './AccountMenu';
 export * from './ModalWindow';
 export * from './SideBar';
+export * from './Logo';

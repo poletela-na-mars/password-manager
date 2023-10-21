@@ -10,3 +10,10 @@ export enum Sections {
 	Generator = 'Генератор',
 	Settings = 'Настройки',
 }
+
+export enum SectionsUrls {
+	Storage = '/',
+	Share = '/share',
+	Generator = '/generate',
+	Settings = '/settings',
+}

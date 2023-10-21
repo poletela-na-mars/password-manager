@@ -1,0 +1,40 @@
+@import '../../scss/variables', '../../scss/App';
+
+.root {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    @include fontLarge;
+    padding: 0 0 16px 0;
+  }
+
+  p {
+    @include font18ForLaptopL;
+  }
+
+  h2, p {
+    margin: 0;
+    text-align: center;
+    line-height: 2;
+    color: $brunswick-green;
+  }
+
+  .textSection {
+    margin: 8px 16px 16px 16px;
+  }
+
+  svg {
+    max-height: 50%;
+    max-width: 70%;
+  }
+
+  .outlinedButton {
+    font-weight: 400;
+    @include font18ForLaptopL;
+    @include outlinedButton($margin: 16px 16px 32px 16px);
+  }
+}

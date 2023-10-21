@@ -9,8 +9,10 @@ export const MainLayout = () => {
 	return (
 		<div className={styles.wrapper}>
 			<Header />
+
 			{/*подложка для SideBar*/}
 			<SideBar position='relative' />
+
 			<SideBar position='fixed' />
 
 			<main className={styles.content}>

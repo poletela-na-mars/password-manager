@@ -37,6 +37,7 @@ export const ModalWindow = ({ openPopup, closePopupHandler, actionHandler, text,
 			open={openPopup}
 			onClose={closePopupHandler}
 			closeAfterTransition
+			sx={{zIndex: 1600}}
 		>
 			<Fade in={openPopup}>
 				<Box sx={styleBoxPopup}>

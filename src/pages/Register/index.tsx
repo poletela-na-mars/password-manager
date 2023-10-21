@@ -32,9 +32,9 @@ export const Register = () => {
 		mode: 'onChange',
 	});
 
-	const onPasswordShowClickHandler = () => setShowPassword(!showPassword);
+	const passwordShowClickHandler = () => setShowPassword(!showPassword);
 
-	const onPasswordRepeatShowClickHandler = () => setShowPasswordRepeat(!showPasswordRepeat);
+	const passwordRepeatShowClickHandler = () => setShowPasswordRepeat(!showPasswordRepeat);
 
 	if (isAuth) {
 		return <Navigate to='/' />;
@@ -84,7 +84,7 @@ export const Register = () => {
 			registerStr: 'Введите пароль',
 			type: 'password',
 			inputProps: { maxLength: 40 },
-			onPasswordShowClickHandler,
+			passwordShowClickHandler,
 			showPassword,
 		},
 		passwordRepeat: {
@@ -96,7 +96,7 @@ export const Register = () => {
 			registerStr: 'Введите пароль еще раз',
 			type: 'password',
 			inputProps: { maxLength: 40 },
-			onPasswordShowClickHandler: onPasswordRepeatShowClickHandler,
+			passwordShowClickHandler: passwordRepeatShowClickHandler,
 			showPassword: showPasswordRepeat,
 		}
 	};

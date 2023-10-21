@@ -1,0 +1,11 @@
+@import '../../scss/_variables', '../../scss/App';
+
+.title {
+  background-image: linear-gradient(to right, $fresh-green, $brunswick-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  //color: $brunswick-green;
+  text-align: center;
+  font-weight: 700;
+  @include font18ForLaptopL;
+}
