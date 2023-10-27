@@ -1,24 +1,33 @@
-import { Toolbar } from '@mui/material';
 import { Outlet } from 'react-router-dom';
+import { Box, Toolbar } from '@mui/material';
 
-import { Header, SideBar } from '../../components'
+import { BottomBar, Header, SideBar } from '../../components';
+
+import { useResize } from '../../utils/useResize';
 
 import styles from './MainLayout.module.scss';
 
 export const MainLayout = () => {
+	const { isScreenLg, isScreenXl, isScreenXxl } = useResize();
+
 	return (
-		<div className={styles.wrapper}>
+		<Box sx={{ pb: 7 }} className={styles.wrapper}>
 			<Header />
 
-			{/*подложка для SideBar*/}
-			<SideBar position='relative' />
-
-			<SideBar position='fixed' />
+			{
+				(isScreenLg || isScreenXl || isScreenXxl)
+					? <>
+						{/*подложка для SideBar*/}
+						<SideBar position='relative' />
+						<SideBar position='fixed' />
+					</>
+					: <BottomBar />
+			}
 
 			<main className={styles.content}>
 				<Toolbar />
 				<Outlet />
 			</main>
-		</div>
-	)
+		</Box>
+	);
 };

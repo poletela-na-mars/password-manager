@@ -1,0 +1,35 @@
+@import '../../scss/_variables', '../../scss/App';
+
+.root {
+  .block {
+    background-color: $baby-powder !important;
+
+    .section {
+      svg {
+        fill: $dim-gray;
+      }
+
+      button {
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+      span {
+        margin-top: 6px;
+        font: inherit;
+        font-weight: 500;
+        color: $dim-gray;
+      }
+    }
+
+    .activeSection {
+      span {
+        color: $brunswick-green;
+      }
+
+      svg {
+        fill: $brunswick-green;
+      }
+    }
+  }
+}

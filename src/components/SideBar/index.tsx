@@ -2,20 +2,12 @@ import { useEffect, useState } from 'react';
 import { Box, Drawer, List, ListItem, ListItemButton, Toolbar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { Sections, SectionsUrls } from '../../assets/consts';
-
-import { ReactComponent as StorageIcon } from '../../assets/img/storage-icon.svg';
-import { ReactComponent as ShareIcon } from '../../assets/img/share-icon.svg';
-import { ReactComponent as GenerateIcon } from '../../assets/img/generate-icon.svg';
-import { ReactComponent as SettingsIcon } from '../../assets/img/settings-icon.svg';
+import {icons, sections, sectionsUrls} from '../../assets/barNaming';
+import { SectionsUrls } from '../../assets/consts';
 
 import { theme } from '../../scss/theme';
 
 import styles from './SideBar.module.scss';
-
-const icons = [<StorageIcon />, <ShareIcon />, <GenerateIcon />, <SettingsIcon />];
-const sections = [Sections.Storage, Sections.Share, Sections.Generator, Sections.Settings];
-const sectionsUrls = [SectionsUrls.Storage, SectionsUrls.Share, SectionsUrls.Generator, SectionsUrls.Settings];
 
 type SideBarProps = {
 	position: string;

@@ -5,3 +5,4 @@ export * from './AccountMenu';
 export * from './ModalWindow';
 export * from './SideBar';
 export * from './Logo';
+export * from './BottomBar';
