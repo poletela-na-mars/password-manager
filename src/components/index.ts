@@ -6,3 +6,4 @@ export * from './ModalWindow';
 export * from './SideBar';
 export * from './Logo';
 export * from './BottomBar';
+export * from './CreateSpeedDial';
