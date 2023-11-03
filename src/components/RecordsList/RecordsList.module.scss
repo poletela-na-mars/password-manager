@@ -6,6 +6,7 @@
   align-items: center;
   gap: 8px;
   margin: 16px 0;
+  list-style-type: none;
 
   svg {
     width: 20px;
@@ -13,6 +14,7 @@
   }
 
   p {
+    cursor: pointer;
     font-weight: 300;
     margin: 0;
     @include fontSmall;

@@ -18,6 +18,12 @@ export enum SectionsUrls {
 	Settings = '/settings',
 }
 
+export enum Urls {
+	AllRecords = '/records',
+	AllFolders = '/folders',
+	Favourites = '/favourites',
+}
+
 export enum Records {
 	Login = 'Логин',
 	Card = 'Карта',

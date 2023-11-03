@@ -6,6 +6,8 @@ import { selectIsAuth } from '../../redux/auth/selectors';
 
 import { CreateSpeedDial, FoldersList, RecordsList, StorageSection, PasswordsStats } from '../../components';
 
+import { Urls } from '../../assets/consts';
+
 import styles from './Storage.module.scss';
 
 export const Storage = () => {
@@ -21,15 +23,15 @@ export const Storage = () => {
 		<>
 			<CreateSpeedDial />
 
-			<StorageSection name='Все записи' length={3}>
+			<StorageSection name='Все записи' length={3} url={Urls.AllRecords}>
 				<RecordsList />
 			</StorageSection>
 			<Divider />
-			<StorageSection name='Папки' length={2}>
+			<StorageSection name='Папки' length={2} url={Urls.AllFolders}>
 				<FoldersList />
 			</StorageSection>
 			<Divider />
-			<StorageSection name='Избранное' length={1} />
+			<StorageSection name='Избранное' length={1} url={Urls.Favourites} />
 
 			<PasswordsStats />
 		</>

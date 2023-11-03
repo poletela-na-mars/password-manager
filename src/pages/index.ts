@@ -5,3 +5,5 @@ export * from './Share';
 export * from './Generate';
 export * from './Settings';
 export * from './NotFound';
+export * from './Records';
+export * from './Folders';

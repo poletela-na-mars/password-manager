@@ -1,6 +1,7 @@
 import styles from './PasswordsStats.module.scss';
 
 // TODO - data from Redux
+// TODO - add page with stats
 
 export const PasswordsStats = () => {
 	return (
