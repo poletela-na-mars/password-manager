@@ -1,0 +1,15 @@
+@import '../../scss/_variables', '../../scss/App';
+
+.folderLine {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+
+  p {
+    font-weight: 300;
+    margin: 0;
+    @include fontSmall;
+  }
+}

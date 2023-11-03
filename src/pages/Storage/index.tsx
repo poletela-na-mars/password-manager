@@ -1,9 +1,12 @@
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Divider } from '@mui/material';
 
 import { selectIsAuth } from '../../redux/auth/selectors';
 
-import { CreateSpeedDial } from '../../components';
+import { CreateSpeedDial, FoldersList, RecordsList, StorageSection, PasswordsStats } from '../../components';
+
+import styles from './Storage.module.scss';
 
 export const Storage = () => {
 	const isAuth = useSelector(selectIsAuth);
@@ -12,67 +15,23 @@ export const Storage = () => {
 		return <Navigate to='/login' />;
 	}
 
+	// TODO - length of records from Redux
+
 	return (
 		<>
 			<CreateSpeedDial />
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
 
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
+			<StorageSection name='Все записи' length={3}>
+				<RecordsList />
+			</StorageSection>
+			<Divider />
+			<StorageSection name='Папки' length={2}>
+				<FoldersList />
+			</StorageSection>
+			<Divider />
+			<StorageSection name='Избранное' length={1} />
 
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam culpa cumque, ex id inventore labore!
-				Architecto consequuntur deleniti dicta, eaque eligendi expedita laborum optio reprehenderit saepe, tempora
-				temporibus unde.
-			</div>
+			<PasswordsStats />
 		</>
 	);
 };

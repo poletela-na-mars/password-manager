@@ -1,0 +1,20 @@
+@import '../../scss/_variables', '../../scss/App';
+
+.recordLine {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  p {
+    font-weight: 300;
+    margin: 0;
+    @include fontSmall;
+  }
+}

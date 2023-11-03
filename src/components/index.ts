@@ -7,3 +7,7 @@ export * from './SideBar';
 export * from './Logo';
 export * from './BottomBar';
 export * from './CreateSpeedDial';
+export * from './RecordsList';
+export * from './StorageSection';
+export * from './FoldersList';
+export * from './PasswordsStats';
