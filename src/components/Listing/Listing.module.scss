@@ -1,0 +1,40 @@
+@import '../../scss/_variables', '../../scss/App';
+
+.panelBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
+
+  .leftGroup {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      @include font18ForLaptopL;
+      font-weight: 700;
+      color: $brunswick-green;
+      margin: 0 0 0 8px;
+    }
+
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  .number {
+    margin: 0;
+    font-weight: 400;
+    @include font18ForLaptopL;
+    color: $ash-gray;
+  }
+}
+
+.list {
+  padding: 0;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}

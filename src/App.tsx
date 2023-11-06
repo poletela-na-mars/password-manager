@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { fetchCheckAuth } from './redux/auth/asyncActions';
 import { AppDispatch } from './redux/store';
 
-import { Folders, Generate, Login, NotFound, Records, Register, Settings, Share, Storage } from './pages';
+import { Favourites, Folders, Generate, Login, NotFound, Records, Register, Settings, Share, Storage } from './pages';
 import { MainLayout } from './layouts/MainLayout';
 
 import './index.scss';
@@ -25,6 +25,7 @@ function App() {
 				<Route path='' element={<Storage />} />
 				<Route path='records' element={<Records />} />
 				<Route path='folders' element={<Folders />} />
+				<Route path='favourites' element={<Favourites />} />
 
 				<Route path='share' element={<Share />} />
 				<Route path='generate' element={<Generate />} />

@@ -8,8 +8,6 @@ import { CreateSpeedDial, FoldersList, RecordsList, StorageSection, PasswordsSta
 
 import { Urls } from '../../assets/consts';
 
-import styles from './Storage.module.scss';
-
 export const Storage = () => {
 	const isAuth = useSelector(selectIsAuth);
 
@@ -23,7 +21,7 @@ export const Storage = () => {
 		<>
 			<CreateSpeedDial />
 
-			<StorageSection name='Все записи' length={3} url={Urls.AllRecords}>
+			<StorageSection name='Записи' length={3} url={Urls.AllRecords}>
 				<RecordsList />
 			</StorageSection>
 			<Divider />

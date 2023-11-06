@@ -1,0 +1,62 @@
+@import '../../scss/_variables', '../../scss/App';
+
+.folderElement {
+  padding: 16px;
+}
+
+.recordElement {
+  padding: 8px 16px;
+}
+
+.listElement {
+  cursor: pointer;
+  list-style-type: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: $light-rounded-border-radius;
+  border: 1px solid $baby-powder;
+  margin-bottom: 16px;
+
+  .leftFolderGroup {
+    display: flex;
+    align-items: center;
+
+    .folderHeader {
+      @include fontSmall;
+      font-weight: 400;
+      margin: 0 16px 2px;
+    }
+  }
+
+  .leftRecordGroup {
+    display: flex;
+    align-items: flex-start;
+
+    .textGroup {
+      display: flex;
+      flex-direction: column;
+      margin-left: 16px;
+
+      .recordHeader {
+        @include fontSmall;
+        font-weight: 700;
+        margin: 0 0 2px;
+      }
+
+      p {
+        @include fontSmall;
+        font-weight: 300;
+        margin: 2px 0 0;
+      }
+    }
+  }
+
+  .starIcon {
+    width: 18px;
+    height: 18px;
+    fill: $ash-gray;
+  }
+}

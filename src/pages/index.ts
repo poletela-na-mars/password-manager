@@ -7,3 +7,4 @@ export * from './Settings';
 export * from './NotFound';
 export * from './Records';
 export * from './Folders';
+export * from './Favourites';

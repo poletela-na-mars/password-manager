@@ -5,3 +5,4 @@ export interface AuthState {
 	data: UserData;
 	status: Status;
 }
+
