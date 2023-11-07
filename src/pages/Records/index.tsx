@@ -1,9 +1,8 @@
 import qs from 'qs';
 
-import { TopPanel } from '../../components/Listing/TopPanel';
-import { Listing } from '../../components';
+import { Listing, TopPanel } from '../../components';
 
-import { RecordsTypes, Records as RecordsMap } from '../../assets/consts';
+import { Records as RecordsMap, RecordsTypes } from '../../assets/consts';
 import { RecordCard, RecordType } from '../../@types/basic-types';
 
 // TODO - get list of Records from Redux

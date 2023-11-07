@@ -1,5 +1,4 @@
-import { Listing } from '../../components';
-import { TopPanel } from '../../components/Listing/TopPanel';
+import { Listing, TopPanel } from '../../components';
 
 import { FolderCard } from '../../@types/basic-types';
 

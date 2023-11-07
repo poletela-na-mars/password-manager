@@ -13,3 +13,4 @@ export * from './FoldersList';
 export * from './PasswordsStats';
 export * from './Listing';
 export * from './ListingElement';
+export * from './TopPanel';

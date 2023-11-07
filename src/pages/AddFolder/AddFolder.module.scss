@@ -1,0 +1,23 @@
+@import '../../scss/variables', '../../scss/App';
+
+.container {
+  margin: 24px 0 24px 32px;
+
+  form {
+    .submitButton {
+      display: block;
+      @include classicButton($margin: 20px 42px);
+      @include fontSmall;
+      font-weight: 700;
+
+      &:enabled:active {
+        transform: scale(0.9);
+      }
+
+      &:disabled {
+        color: $ash-gray;
+        cursor: auto;
+      }
+    }
+  }
+}

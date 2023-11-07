@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { ListItemIcon, Menu, MenuItem } from '@mui/material';
 
 import { ModalWindow } from '../ModalWindow';
@@ -21,10 +23,12 @@ export const AccountMenu = ({ anchorEl, open, handleClose }: AccountMenuProps) =
 	const [openPopup, setOpenPopup] = useState(false);
 
 	const dispatch = useDispatch<AppDispatch>();
+	const navigate = useNavigate();
 
 	const logoutHandler = () => {
 		dispatch(logout());
 		window.localStorage.removeItem('token');
+		navigate('/login');
 	};
 
 	const closePopupHandler = () => {

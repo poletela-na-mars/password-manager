@@ -1,5 +1,4 @@
-import { TopPanel } from '../../components/Listing/TopPanel';
-import { Listing } from '../../components';
+import { Listing, TopPanel } from '../../components';
 
 import { FolderCard, RecordCard } from '../../@types/basic-types';
 import { RecordsTypes } from '../../assets/consts';
