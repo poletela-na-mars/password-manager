@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Box, Drawer, List, ListItem, ListItemButton, Toolbar } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import {icons, sections, sectionsUrls} from '../../assets/barNaming';
 import { SectionsUrls } from '../../assets/consts';
@@ -17,6 +17,7 @@ export const SideBar = ({ position }: SideBarProps) => {
 	const [activeSection, setActiveSection] = useState<number>();
 
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const sectionButtonClickHandler = (idx: number) => {
 		setActiveSection(idx);
@@ -26,7 +27,7 @@ export const SideBar = ({ position }: SideBarProps) => {
 	useEffect(() => {
 		if (sectionsUrls.includes(window.location.pathname as SectionsUrls))
 			setActiveSection(sectionsUrls.indexOf(window.location.pathname as SectionsUrls));
-	}, []);
+	}, [location]);
 
 	return (
 		<Drawer

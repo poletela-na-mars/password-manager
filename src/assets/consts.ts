@@ -22,6 +22,8 @@ export enum Urls {
 	AllRecords = '/records',
 	AllFolders = '/folders',
 	Favourites = '/favourites',
+	AddRecord = 'add-record',
+	AddFolder = 'add-folder',
 }
 
 // lower case for compatibility in qs parsing

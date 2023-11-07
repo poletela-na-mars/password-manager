@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
+
 import styles from './Logo.module.scss';
 
 export const Logo = () => {
 	return (
-		<h2 className={styles.title}>SafeBox</h2>
+		<h2 className={styles.title}>
+			<Link to='/'>SafeBox</Link>
+		</h2>
 	);
 };

@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { FolderCard, RecordCard } from '../../@types/basic-types';
 import { ListingElementType } from '../../assets/consts';
 
@@ -13,13 +15,20 @@ interface ListingElementProps {
 }
 
 export const ListingElement = ({ type, element }: ListingElementProps) => {
+	const navigate = useNavigate();
+
+	const clickListElementHandler = () => {
+		// TODO - get element id from Redux
+		const id = 105;
+		navigate(`${id}`);
+	};
 
 	return (
 		<>
 			{
 				(type === ListingElementType.Record)
 					?
-					<li className={`${styles.listElement} ${styles.recordElement}`}>
+					<li className={`${styles.listElement} ${styles.recordElement}`} onClick={clickListElementHandler}>
 						<div className={styles.leftRecordGroup}>
 							{mappingRecordTypeToIcon[(element as RecordCard).type]}
 							<div className={styles.textGroup}>
@@ -31,7 +40,7 @@ export const ListingElement = ({ type, element }: ListingElementProps) => {
 						{(element as RecordCard).isFav && <StarIcon className={styles.starIcon} />}
 					</li>
 					:
-					<li className={`${styles.listElement} ${styles.folderElement}`}>
+					<li className={`${styles.listElement} ${styles.folderElement}`} onClick={clickListElementHandler}>
 						<div className={styles.leftFolderGroup}>
 							<FolderIcon />
 							<h4 className={styles.folderHeader}>{(element as FolderCard).title}</h4>
