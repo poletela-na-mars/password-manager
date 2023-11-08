@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+
+import { selectIsAuth } from '../../redux/auth/selectors';
 
 import { TextField } from '@mui/material';
 
@@ -12,6 +16,12 @@ import styles from './AddFolder.module.scss';
 
 export const AddFolder = () => {
 	const [isFav, setFav] = useState(false);
+
+	const isAuth = useSelector(selectIsAuth);
+
+	if (!isAuth) {
+		return <Navigate to='/login' />;
+	}
 
 	return (
 		<>

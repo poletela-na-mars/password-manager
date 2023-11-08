@@ -1,4 +1,8 @@
 import qs from 'qs';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+
+import { selectIsAuth } from '../../redux/auth/selectors';
 
 import { Listing, TopPanel } from '../../components';
 
@@ -10,6 +14,12 @@ import { RecordCard, RecordType } from '../../@types/basic-types';
 
 export const Records = () => {
 	const { type } = qs.parse(window.location.search.substring(1));
+
+	const isAuth = useSelector(selectIsAuth);
+
+	if (!isAuth) {
+		return <Navigate to='/login' />;
+	}
 
 	const list: RecordCard[] = [
 		{
