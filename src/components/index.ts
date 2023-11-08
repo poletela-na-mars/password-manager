@@ -14,3 +14,4 @@ export * from './PasswordsStats';
 export * from './Listing';
 export * from './ListingElement';
 export * from './TopPanel';
+export * from './LoginRecordForm';

@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 import { selectIsAuth } from '../../redux/auth/selectors';
 
-import { TextField } from '@mui/material';
+import { Stack, TextField } from '@mui/material';
 
 import { TopPanel } from '../../components';
 
@@ -27,7 +27,15 @@ export const AddFolder = () => {
 		<>
 			<TopPanel title='Добавление новой папки' isFav={isFav} setFav={setFav} />
 			<div className={styles.container}>
-				<form>
+				<Stack
+					component='form'
+					sx={{
+						width: '35ch',
+					}}
+					spacing={3}
+					noValidate
+					autoComplete='off'
+				>
 					<TextField inputProps={{ maxLength: 40 }} error={false} helperText={''} variant='standard'
 					           label='Название' placeholder='Новая папка' required
 					           InputLabelProps={{
@@ -37,7 +45,7 @@ export const AddFolder = () => {
 					<button className={styles.submitButton} type='submit' disabled={false}>
 						Сохранить
 					</button>
-				</form>
+				</Stack>
 			</div>
 		</>
 	);
