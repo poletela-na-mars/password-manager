@@ -15,3 +15,5 @@ export * from './Listing';
 export * from './ListingElement';
 export * from './TopPanel';
 export * from './LoginRecordForm';
+export * from './NoteRecordForm';
+export * from './AddressRecordForm';

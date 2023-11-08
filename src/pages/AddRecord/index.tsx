@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { selectIsAuth } from '../../redux/auth/selectors';
 
-import { LoginRecordForm, TopPanel } from '../../components';
+import { AddressRecordForm, LoginRecordForm, NoteRecordForm, TopPanel } from '../../components';
 
 import { FormControl, FormHelperText, MenuItem, Select, SelectChangeEvent, Stack } from '@mui/material';
 
@@ -84,8 +84,8 @@ export const AddRecord = () => {
 						type === RecordsTypes.Login ?
 							<LoginRecordForm passwordShowClickHandler={passwordShowClickHandler} showPassword={showPassword} /> :
 							type === RecordsTypes.Card ? <></> :
-								type === RecordsTypes.Address ? <></> :
-									type === RecordsTypes.Note && <></>
+								type === RecordsTypes.Address ? <AddressRecordForm /> :
+									type === RecordsTypes.Note && <NoteRecordForm />
 					}
 
 					<FormControl sx={{ display: 'block' }} size='small'>

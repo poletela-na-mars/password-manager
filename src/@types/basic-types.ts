@@ -50,7 +50,16 @@ export interface Card extends Record {
 export interface Address extends Record {
 	type: RecordsTypes.Address;
 	title: string;
-	address: string; // TODO - use lib
+	country: string;
+	index: string;
+	region: string;
+	city: string;
+	street: string;
+	house: string;
+	building: string;
+	entrance: string;
+	flat: string;
+	note: string;
 }
 
 export interface Note extends Record {
