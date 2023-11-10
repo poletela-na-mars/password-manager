@@ -17,3 +17,4 @@ export * from './TopPanel';
 export * from './LoginRecordForm';
 export * from './NoteRecordForm';
 export * from './AddressRecordForm';
+export * from './CardRecordForm';

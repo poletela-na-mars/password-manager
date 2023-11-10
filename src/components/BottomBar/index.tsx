@@ -24,7 +24,7 @@ export const BottomBar = () => {
 	}, []);
 
 	return (
-		<Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} className={styles.root} elevation={3}>
+		<Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1 }} className={styles.root} elevation={3}>
 			<BottomNavigation className={styles.block} showLabels value={activeSection}
 			                  onChange={(event, idx) => sectionButtonClickHandler(idx)}>
 				{
