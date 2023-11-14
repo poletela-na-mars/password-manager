@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
+import { ToasterProvider } from './utils/ToastProvider';
 
 import { store } from './redux/store';
 
@@ -19,6 +20,7 @@ root.render(
 		<BrowserRouter>
 			<Provider store={store}>
 				<ThemeProvider theme={theme}>
+					<ToasterProvider />
 					<App />
 				</ThemeProvider>
 			</Provider>

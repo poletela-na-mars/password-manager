@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { IconButton, Tooltip } from '@mui/material';
+
 import { ReactComponent as ArrowBack } from '../../assets/img/arrow-back-icon.svg';
 import { ReactComponent as StarIcon } from '../../assets/img/star-icon.svg';
 import { ReactComponent as EmptyStarIcon } from '../../assets/img/empty-star-icon.svg';
@@ -38,8 +40,20 @@ export const TopPanel = ({ title, length, isFav, setFav }: TopPanelProps) => {
 				length
 					? <span className={styles.number}>{length}</span>
 					: isFav
-						? <StarIcon className={styles.star} onClick={setFavHandler} />
-						: <EmptyStarIcon className={styles.star} onClick={setFavHandler} />
+						? (
+							<Tooltip title='Убрать из избранного'>
+								<IconButton onClick={setFavHandler}>
+									<StarIcon className={styles.star} />
+								</IconButton>
+							</Tooltip>
+						)
+						: (
+							<Tooltip title='Добавить в избранное'>
+								<IconButton onClick={setFavHandler}>
+									<EmptyStarIcon className={styles.star} onClick={setFavHandler} />
+								</IconButton>
+							</Tooltip>
+						)
 			}
 		</div>
 	);

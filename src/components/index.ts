@@ -18,3 +18,7 @@ export * from './LoginRecordForm';
 export * from './NoteRecordForm';
 export * from './AddressRecordForm';
 export * from './CardRecordForm';
+export * from './LoginRecordView';
+export * from './CardRecordView';
+export * from './AddressRecordView';
+export * from './NoteRecordView';

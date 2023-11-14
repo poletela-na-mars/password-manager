@@ -1,6 +1,6 @@
 // TODO - logic for buttons near password field
 
-import { IconButton, InputAdornment, TextField } from '@mui/material';
+import { IconButton, InputAdornment, TextField, Tooltip } from '@mui/material';
 
 import { ReactComponent as VerifyIcon } from '../../assets/img/verify-icon.svg';
 import { ReactComponent as GenerateIcon } from '../../assets/img/generate-icon.svg';
@@ -35,10 +35,12 @@ export const LoginRecordForm = ({ showPassword, passwordShowClickHandler }: Logi
 			           InputProps={{
 				           endAdornment:
 					           <InputAdornment sx={{ marginBottom: '14px' }} position='end'>
-						           <IconButton onClick={() => {
-						           }}>
-							           <VerifyIcon />
-						           </IconButton>
+						           <Tooltip title='Безопасность пароля'>
+							           <IconButton onClick={() => {
+							           }}>
+								           <VerifyIcon />
+							           </IconButton>
+						           </Tooltip>
 						           <IconButton onClick={passwordShowClickHandler}>
 							           {showPassword ? <VisibilityOffIcon className={styles.visibilityIcon} /> :
 								           <VisibilityIcon className={styles.visibilityIcon} />}

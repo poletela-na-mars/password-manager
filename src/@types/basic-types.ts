@@ -28,10 +28,10 @@ export interface Record {
 	elementType: ListingElementType.Record;
 	folder: Folder;
 	isFav: boolean;
+	type: RecordsTypes;
 }
 
 export interface Login extends Record {
-	type: RecordsTypes.Login;
 	title: string;
 	name: string;
 	password: string;
@@ -39,7 +39,6 @@ export interface Login extends Record {
 }
 
 export interface Card extends Record {
-	type: RecordsTypes.Card;
 	title: string;
 	name: string;
 	cardNumber: string; // TODO - string or number
@@ -48,7 +47,6 @@ export interface Card extends Record {
 }
 
 export interface Address extends Record {
-	type: RecordsTypes.Address;
 	title: string;
 	country: string;
 	index: string;
@@ -63,7 +61,6 @@ export interface Address extends Record {
 }
 
 export interface Note extends Record {
-	type: RecordsTypes.Note;
 	title: string;
 	note: string;
 }
