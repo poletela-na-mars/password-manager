@@ -13,6 +13,8 @@ import { recordsTypes, recordsUrls } from '../../assets/allRecordsNaming';
 
 import styles from './AddRecord.module.scss';
 
+import { folders } from '../../mocks/recordMocks';
+
 // TODO - show errors from back (error + helperText)
 // TODO - react-hook-form
 // TODO - add logic
@@ -32,18 +34,6 @@ export const AddRecord = () => {
 		return <Navigate to='/login' />;
 	}
 
-	// TODO - remove this stub array + add type Folder in .map in field
-	const folders = [
-		{
-			_id: 2,
-			title: 'Важное с конференеции',
-		},
-		{
-			_id: 1,
-			title: 'Родительское собрание',
-		}
-	];
-
 	const changeTypeHandler = (event: SelectChangeEvent) => {
 		setType(event.target.value as RecordsTypes);
 	};
@@ -53,6 +43,18 @@ export const AddRecord = () => {
 	};
 
 	const passwordShowClickHandler = () => setShowPassword(!showPassword);
+
+	const RecordForm = (record: RecordsTypes) => {
+		if (record === RecordsTypes.Login) {
+			return <LoginRecordForm passwordShowClickHandler={passwordShowClickHandler} showPassword={showPassword} />
+		} else if (record === RecordsTypes.Card) {
+			return <CardRecordForm />
+		} else if (record === RecordsTypes.Address) {
+			return <AddressRecordForm />
+		} else if (record === RecordsTypes.Note) {
+			return <NoteRecordForm />
+		}
+	};
 
 	return (
 		<>
@@ -79,15 +81,7 @@ export const AddRecord = () => {
 							}
 						</Select>
 					</FormControl>
-
-					{
-						type === RecordsTypes.Login ?
-							<LoginRecordForm passwordShowClickHandler={passwordShowClickHandler} showPassword={showPassword} /> :
-							type === RecordsTypes.Card ? <CardRecordForm /> :
-								type === RecordsTypes.Address ? <AddressRecordForm /> :
-									type === RecordsTypes.Note && <NoteRecordForm />
-					}
-
+					{RecordForm(type)}
 					<FormControl sx={{ display: 'block' }} size='small'>
 						<FormHelperText sx={{ margin: 0 }}>Папка</FormHelperText>
 						<Select

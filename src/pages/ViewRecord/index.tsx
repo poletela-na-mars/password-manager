@@ -5,52 +5,62 @@ import qs from 'qs';
 
 import { selectIsAuth } from '../../redux/auth/selectors';
 
-import { CardRecordView, LoginRecordView, AddressRecordView, TopPanel, NoteRecordView } from '../../components';
+import { AddressRecordView, CardRecordView, LoginRecordView, NoteRecordView, TopPanel } from '../../components';
 import { IconButton, InputAdornment, Stack, TextField } from '@mui/material';
 
-import { ListingElementType, Records, RecordsTypes } from '../../assets/consts';
-import { Folder, Login } from '../../@types/basic-types';
+import { Records } from '../../assets/consts';
+import { Record } from '../../@types/basic-types';
 
 import { nameEmptyFolder } from '../../utils/nameEmptyFolder';
 import { copyContent } from '../../utils/copyContent';
+import { isAddress, isCard, isLogin, isNote } from '../../utils/checkRecordType';
 
 import { ReactComponent as CopyIcon } from '../../assets/img/copy-icon.svg';
 
 import styles from './ViewRecord.module.scss';
 
+import { recordNote } from '../../mocks/recordMocks';
+
 // TODO - get data from Redux
 // TODO - add logic for verify button
 
 export const ViewRecord = () => {
-	const [showPassword, setShowPassword] = useState(false);
+	const [showPassword, setShowPassword] = useState(false)
+	const [showCardNum, setShowCardNum] = useState(false);
+	const [showCVC, setShowCVC] = useState(false);
+	const [showExpDate, setShowExpDate] = useState(false);
+
 	const [isFav, setFav] = useState(false);
 
 	const { id } = qs.parse(window.location.search.substring(1));
 
 	console.log(id);
 
-	const folder: Folder = {
-		_id: '1f',
-		createdAt: new Date(),
-		editedAt: new Date(),
-		elementType: ListingElementType.Folder,
-		title: '',
-		isFav: true,
-	};
+	let record = recordNote;
 
-	const record: Login = {
-		_id: '1',
-		createdAt: new Date(),
-		editedAt: new Date(),
-		elementType: ListingElementType.Record,
-		folder: folder,
-		isFav: true,
-		type: RecordsTypes.Login,
+	const passwordShowClickHandler = () => setShowPassword(!showPassword);
+	const showCardNumClickHandler = () => setShowCardNum(!showCardNum);
+	const showCVCClickHandler = () => setShowCVC(!showCVC);
+	const showExpDateClickHandler = () => setShowExpDate(!showExpDate);
 
-		title: 'Github',
-		name: 'polina-code@gmail.com',
-		password: 'password',
-		uri: 'https://github.com/poletela-na-mars',
+	const RecordView = <T extends Record>(record: T) => {
+		if (isLogin(record)) {
+			return <LoginRecordView record={record}
+			                        passwordShowClickHandler={passwordShowClickHandler}
+			                        showPassword={showPassword} />
+		} else if (isCard(record)) {
+			return <CardRecordView record={record}
+			                       showCardNum={showCardNum}
+			                       showCardNumClickHandler={showCardNumClickHandler}
+			                       showCVC={showCVC}
+			                       showCVCClickHandler={showCVCClickHandler}
+			                       showExpDate={showExpDate}
+			                       showExpDateClickHandler={showExpDateClickHandler} />
+		} else if (isAddress(record)) {
+			return <AddressRecordView record={record} />
+		} else if (isNote(record)) {
+			return <NoteRecordView record={record} />
+		}
 	};
 
 	const isAuth = useSelector(selectIsAuth);
@@ -58,8 +68,6 @@ export const ViewRecord = () => {
 	if (!isAuth) {
 		return <Navigate to='/login' />;
 	}
-
-	const passwordShowClickHandler = () => setShowPassword(!showPassword);
 
 	return (
 		<>
@@ -88,21 +96,14 @@ export const ViewRecord = () => {
 							readOnly: true,
 							endAdornment:
 								<InputAdornment sx={{ marginBottom: '14px' }} position='end'>
-									<IconButton onClick={() => copyContent(record.uri)}>
+									<IconButton onClick={() => copyContent(record.title)}>
 										<CopyIcon />
 									</IconButton>
 								</InputAdornment>
 						}}
 						variant='standard'
 					/>
-					{
-						record.type === RecordsTypes.Login ?
-							<LoginRecordView passwordShowClickHandler={passwordShowClickHandler} showPassword={showPassword}
-							                 record={record} /> :
-							record.type === RecordsTypes.Card ? <CardRecordView /> :
-								record.type === RecordsTypes.Address ? <AddressRecordView /> :
-									record.type === RecordsTypes.Note && <NoteRecordView />
-					}
+					{RecordView(record)}
 					<TextField
 						label='Папка'
 						defaultValue={nameEmptyFolder(record.folder.title)}

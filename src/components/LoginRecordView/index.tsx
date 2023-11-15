@@ -9,8 +9,6 @@ import { ReactComponent as CopyIcon } from '../../assets/img/copy-icon.svg';
 import { ReactComponent as VisibilityOffIcon } from '../../assets/img/visibility-off-icon.svg';
 import { ReactComponent as VisibilityIcon } from '../../assets/img/visibility-icon.svg';
 
-import styles from '../../pages/AddRecord/AddRecord.module.scss';
-
 interface LoginRecordViewProps {
 	showPassword: boolean;
 	passwordShowClickHandler: () => void;
@@ -27,7 +25,7 @@ export const LoginRecordView = ({ showPassword, passwordShowClickHandler, record
 					readOnly: true,
 					endAdornment:
 						<InputAdornment sx={{ marginBottom: '14px' }} position='end'>
-							<IconButton onClick={() => copyContent(record.uri)}>
+							<IconButton onClick={() => copyContent(record.name)}>
 								<CopyIcon />
 							</IconButton>
 						</InputAdornment>
@@ -49,8 +47,8 @@ export const LoginRecordView = ({ showPassword, passwordShowClickHandler, record
 								</IconButton>
 							</Tooltip>
 							<IconButton onClick={passwordShowClickHandler}>
-								{showPassword ? <VisibilityOffIcon className={styles.visibilityIcon} /> :
-									<VisibilityIcon className={styles.visibilityIcon} />}
+								{showPassword ? <VisibilityOffIcon /> :
+									<VisibilityIcon />}
 							</IconButton>
 							<IconButton onClick={() => copyContent(record.password)}>
 								<CopyIcon />
@@ -68,7 +66,7 @@ export const LoginRecordView = ({ showPassword, passwordShowClickHandler, record
 						readOnly: true,
 						endAdornment:
 							<InputAdornment sx={{ marginBottom: '14px' }} position='end'>
-								<IconButton onClick={() => copyContent(record.uri)}>
+								<IconButton onClick={() => copyContent(record.uri!)}>
 									<CopyIcon />
 								</IconButton>
 							</InputAdornment>

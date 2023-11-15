@@ -10,7 +10,7 @@ export const AddressRecordForm = () => {
 			           }} />
 
 			<TextField inputProps={{ maxLength: 40 }} error={false} helperText={''} variant='standard'
-			           label='Страна' placeholder='Страна'
+			           label='Страна' placeholder='Страна' required
 			           InputLabelProps={{
 				           shrink: true,
 			           }} />
@@ -28,13 +28,13 @@ export const AddressRecordForm = () => {
 			           }} />
 
 			<TextField inputProps={{ maxLength: 40 }} error={false} helperText={''} variant='standard'
-			           label='Город' placeholder='Город'
+			           label='Город' placeholder='Город' required
 			           InputLabelProps={{
 				           shrink: true,
 			           }} />
 
 			<TextField inputProps={{ maxLength: 40 }} error={false} helperText={''} variant='standard'
-			           label='Улица' placeholder='Улица'
+			           label='Улица' placeholder='Улица' required
 			           InputLabelProps={{
 				           shrink: true,
 			           }} />

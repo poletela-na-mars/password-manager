@@ -21,7 +21,8 @@
     }
 
     span {
-      margin: 0;
+      padding: 8px;
+      margin: 0 8px 0 0;
       font-weight: 400;
       @include font18ForLaptopL;
       color: $ash-gray;

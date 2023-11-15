@@ -35,29 +35,29 @@ export interface Login extends Record {
 	title: string;
 	name: string;
 	password: string;
-	uri: string;
+	uri?: string;
 }
 
 export interface Card extends Record {
 	title: string;
-	name: string;
+	name?: string;
 	cardNumber: string; // TODO - string or number
-	expireDate: Date;
+	expireDate: string; // TODO - string or Date
 	cvc: string; // TODO - string or number
 }
 
 export interface Address extends Record {
 	title: string;
 	country: string;
-	index: string;
-	region: string;
+	index?: string;
+	region?: string;
 	city: string;
 	street: string;
-	house: string;
-	building: string;
-	entrance: string;
-	flat: string;
-	note: string;
+	house?: string;
+	building?: string;
+	entrance?: string;
+	flat?: string;
+	note?: string;
 }
 
 export interface Note extends Record {

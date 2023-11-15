@@ -59,4 +59,10 @@
     height: 18px;
     fill: $ash-gray;
   }
+
+  transition: border-color $fast-transition-dur;
+
+  &:hover {
+    border-color: $honeydew;
+  }
 }

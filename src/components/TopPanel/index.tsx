@@ -50,7 +50,7 @@ export const TopPanel = ({ title, length, isFav, setFav }: TopPanelProps) => {
 						: (
 							<Tooltip title='Добавить в избранное'>
 								<IconButton onClick={setFavHandler}>
-									<EmptyStarIcon className={styles.star} onClick={setFavHandler} />
+									<EmptyStarIcon className={styles.star} />
 								</IconButton>
 							</Tooltip>
 						)
