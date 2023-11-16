@@ -11,7 +11,7 @@ export const MainLayout = () => {
 	const { isScreenLg, isScreenXl, isScreenXxl } = useResize();
 
 	return (
-		<Box sx={{ pb: 7 }} className={styles.wrapper}>
+		<Box className={styles.wrapper}>
 			<Header />
 
 			{

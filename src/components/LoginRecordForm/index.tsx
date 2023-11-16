@@ -55,7 +55,7 @@ export const LoginRecordForm = ({ showPassword, passwordShowClickHandler }: Logi
 				           shrink: true,
 			           }} />
 
-			<TextField inputProps={{ maxLength: 40 }} error={false} helperText={''} variant='standard'
+			<TextField inputProps={{ maxLength: 100 }} error={false} helperText={''} variant='standard'
 			           label='URI' placeholder='https://...'
 			           InputLabelProps={{
 				           shrink: true,

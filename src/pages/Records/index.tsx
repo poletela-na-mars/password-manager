@@ -6,8 +6,13 @@ import { selectIsAuth } from '../../redux/auth/selectors';
 
 import { Listing, TopPanel } from '../../components';
 
-import { Records as RecordsMap, RecordsTypes } from '../../assets/consts';
+import { Records as RecordsMap } from '../../assets/consts';
+
+import { toRecordCardAdapter } from '../../utils/toRecordCardAdapter';
+
 import { RecordCard, RecordType } from '../../@types/basic-types';
+
+import { records } from '../../mocks/recordMocks';
 
 // TODO - get list of Records from Redux
 // TODO - change record name cause of type
@@ -21,20 +26,7 @@ export const Records = () => {
 		return <Navigate to='/login' />;
 	}
 
-	const list: RecordCard[] = [
-		{
-			type: RecordsTypes.Login,
-			title: 'Stepik',
-			info: 'polina-study@gmail.com',
-			isFav: true,
-		},
-		{
-			type: RecordsTypes.Card,
-			title: 'Tinkoff Black (work)',
-			info: '*5890',
-			isFav: false,
-		},
-	];
+	const list: RecordCard[] = toRecordCardAdapter(records);
 
 	return (
 		<Listing list={list}>

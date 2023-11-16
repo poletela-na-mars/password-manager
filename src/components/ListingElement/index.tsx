@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
 import { FolderCard, RecordCard } from '../../@types/basic-types';
-import { ListingElementType } from '../../assets/consts';
+import { ListingElementType, Urls } from '../../assets/consts';
 
 import { mappingRecordTypeToIcon } from '../../assets/mappingRecordTypeToIcon';
 import { ReactComponent as StarIcon } from '../../assets/img/star-icon.svg';
 import { ReactComponent as FolderIcon } from '../../assets/img/folder-icon.svg';
+
+import { isFolderCard, isRecordCard } from '../../utils/checkCardType';
 
 import styles from './ListingElement.module.scss';
 
@@ -20,35 +22,42 @@ export const ListingElement = ({ type, element }: ListingElementProps) => {
 	const clickListElementHandler = () => {
 		// TODO - get element id from Redux
 		const id = 105;
-		navigate(`${id}`);
+		if (type === ListingElementType.Record) navigate(`${Urls.AllRecords}/${id}`);
+		else navigate(`${Urls.AllFolders}/${id}`);
+	};
+
+	const Card = (card: RecordCard | FolderCard) => {
+		if (isRecordCard(card)) {
+			return (
+				<li className={`${styles.listElement} ${styles.recordElement}`} onClick={clickListElementHandler}>
+					<div className={styles.leftRecordGroup}>
+						{mappingRecordTypeToIcon[card.type]}
+						<div className={styles.textGroup}>
+							<h4 className={styles.recordHeader}>{card.title}</h4>
+							<p>{card.info}</p>
+						</div>
+					</div>
+
+					{card.isFav && <StarIcon className={styles.starIcon} />}
+				</li>
+			);
+		} else if (isFolderCard(card)) {
+			return (
+				<li className={`${styles.listElement} ${styles.folderElement}`} onClick={clickListElementHandler}>
+					<div className={styles.leftFolderGroup}>
+						<FolderIcon />
+						<h4 className={styles.folderHeader}>{card.title}</h4>
+					</div>
+
+					{card.isFav && <StarIcon className={styles.starIcon} />}
+				</li>
+			);
+		}
 	};
 
 	return (
 		<>
-			{
-				(type === ListingElementType.Record)
-					?
-					<li className={`${styles.listElement} ${styles.recordElement}`} onClick={clickListElementHandler}>
-						<div className={styles.leftRecordGroup}>
-							{mappingRecordTypeToIcon[(element as RecordCard).type]}
-							<div className={styles.textGroup}>
-								<h4 className={styles.recordHeader}>{(element as RecordCard).title}</h4>
-								<p>{(element as RecordCard).info}</p>
-							</div>
-						</div>
-
-						{(element as RecordCard).isFav && <StarIcon className={styles.starIcon} />}
-					</li>
-					:
-					<li className={`${styles.listElement} ${styles.folderElement}`} onClick={clickListElementHandler}>
-						<div className={styles.leftFolderGroup}>
-							<FolderIcon />
-							<h4 className={styles.folderHeader}>{(element as FolderCard).title}</h4>
-						</div>
-
-						{(element as FolderCard).isFav && <StarIcon className={styles.starIcon} />}
-					</li>
-			}
+			{Card(element)}
 		</>
 	);
 };

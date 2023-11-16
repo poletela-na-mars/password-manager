@@ -65,4 +65,6 @@ export interface Note extends Record {
 	note: string;
 }
 
+export type FullRecordType = Login | Card | Address | Note;
+
 export type RecordType = 'login' | 'card' | 'address' | 'note';

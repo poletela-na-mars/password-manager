@@ -1,4 +1,4 @@
-import { Address, Card, Folder, Login, Note } from '../@types/basic-types';
+import { Address, Card, Folder, FullRecordType, Login, Note } from '../@types/basic-types';
 import { ListingElementType, RecordsTypes } from '../assets/consts';
 
 const folder: Folder = {
@@ -78,6 +78,13 @@ const recordNote: Note = {
 		'И улыбкою сиять!',
 };
 
+const records: FullRecordType[] = [
+	recordLogin,
+	recordCard,
+	recordAddress,
+	recordNote
+];
+
 const folders: Folder[] = [
 	{
 		_id: '2',
@@ -97,4 +104,4 @@ const folders: Folder[] = [
 	}
 ];
 
-export { recordCard, recordLogin, recordAddress, recordNote, folder, folders };
+export { recordCard, recordLogin, recordAddress, recordNote, folder, folders, records };
